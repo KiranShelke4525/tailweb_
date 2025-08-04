@@ -43,7 +43,7 @@ def add_or_update_student(request):
             student = Student.objects.filter(name__iexact=name, subject__iexact=subject).first()
 
             if student:
-                student.marks = marks
+                student.marks += marks
                 student.save()
                 created = False
             else:
@@ -83,7 +83,7 @@ def update_student(request):
             student = Student.objects.get(id=student_id)
             student.name = name
             student.subject = subject
-            student.marks = marks
+            student.marks= + marks
             student.save()
 
             return JsonResponse({'success': True})
